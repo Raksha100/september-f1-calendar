@@ -1,0 +1,330 @@
+/* ==========================
+   APP CONTAINER
+   ========================== */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Press Start 2P", monospace;
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* DARK THEME */
+.app-container.dark {
+  --bg: #0d0d0d;
+  --panel: #1a1a1a;
+  --border: #e63946;
+  --text: #f1faee;
+
+  --highlight: #2b2d42;
+  --accent: #e63946;
+  --accent-text: #ffffff;
+  --hover-bg: #333333;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* LIGHT THEME */
+.app-container.light {
+  --bg: #f8f9fa;
+  --panel: #ffffff;
+  --border: #e63946;
+  --text: #212529;
+
+  --highlight: #ffe8d6;
+  --accent: #e63946;
+  --accent-text: #212529;
+  --hover-bg: #f1f1f1;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ==========================
+   WINDOW LAYOUT
+   ========================== */
+.calendar-window {
+  background: var(--panel);
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  width: 85%;          /* smaller than before */
+  max-width: 700px;    /* reduced */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 var(--border);
+  z-index: 1;
+}
+
+/* Title bar */
+.window-bar {
+  background: var(--border);
+  color: var(--bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.window-title {
+  font-weight: bold;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.window-buttons .btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 2px solid var(--bg);
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.window-buttons .btn:hover {
+  background: var(--border);
+  color: var(--bg);
+}
+
+/* Content */
+.window-content {
+  padding: 16px; /* slightly smaller */
+}
+
+.calendar-month {
+  text-align: center;
+  font-size: 14px; /* smaller */
+  margin-bottom: 12px;
+}
+
+/* Weekday labels */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.weekday-cell {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 0;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-cell {
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.day-number {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+/* Empty cells (before 1st day) */
+.calendar-cell.empty {
+  background: transparent;
+  border: none;
+}
+
+/* Highlight race days */
+.calendar-cell.race-day {
+  background-color: var(--highlight);
+  border: 2px solid var(--accent);
+  animation: glow 2s infinite alternate;
+}
+
+.calendar-cell.race-day .day-number {
+  font-weight: bold;
+  color: var(--accent-text);
+}
+
+.race-flag {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 14px;
+}
+
+/* ==========================
+   FOOTER + TOGGLE
+   ========================== */
+.window-footer {
+  text-align: center;
+  padding: 8px;
+  border-top: 2px dashed var(--border);
+}
+
+.theme-toggle {
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Press Start 2P", monospace;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+  color: var(--bg);
+}
+
+/* ==========================
+   ANIMATIONS
+   ========================== */
+
+/* 🍂 Falling leaves */
+.falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  top: -40px;
+  font-size: 22px; /* 🍂 size */
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-40px) translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) translateX(40px) rotate(360deg);
+  }
+}
+
+/* Hover effect */
+.calendar-cell:hover {
+  transform: scale(1.05);
+  background-color: var(--hover-bg);
+  cursor: pointer;
+}
+
+/* Race day glowing effect */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 4px var(--accent);
+  }
+  to {
+    box-shadow: 0 0 12px var(--accent);
+  }
+}
+
+/* Toggle wiggle */
+.theme-toggle:active {
+  animation: wiggle 0.3s ease-in-out;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+/* ==========================
+   RACE DETAILS POPUP
+   ========================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.modal {
+  background: var(--panel);
+  border: 3px solid var(--border);
+  border-radius: 6px;
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 4px 4px 0 var(--border);
+  font-size: 12px;
+  animation: popIn 0.3s ease;
+}
+
+.modal h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.modal p {
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.modal button {
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Press Start 2P", monospace;
+  transition: 0.3s;
+}
+
+.modal button:hover {
+  background: var(--border);
+  color: var(--bg);
+}
+
+/* Popup animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
