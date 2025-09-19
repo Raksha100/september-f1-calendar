@@ -30,4 +30,8 @@ Built with **React + GitHub Copilot**.
 - How Copilot can speed up UI prototyping  
 
 ## 🖼️ Screenshot
-![alt text](<Screenshot 2025-09-19 200859.png>) ![alt text](<Screenshot 2025-09-19 200906.png>)
+<img width="1910" height="880" alt="Screenshot 2025-09-19 200906" src="https://github.com/user-attachments/assets/24e350c0-8d02-4119-9527-7fd9f3d0fcac" />
+<img width="1919" height="921" alt="Screenshot 2025-09-19 200859" src="https://github.com/user-attachments/assets/1297363f-4b39-4d5e-8f15-f97d51a8be39" />
+
+<img width="1919" height="921" alt="Screenshot 2025-09-19 200859" src="https://github.com/user-attachments/assets/99c86093-0a9a-439a-bd7d-03f3da1775de" />
+<img width="1910" height="880" alt="Screenshot 2025-09-19 200906" src="https://github.com/user-attachments/assets/30edc780-6dfa-4daa-9840-960c2d573ebe" />
