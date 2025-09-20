@@ -1,12 +1,34 @@
-# React + Vite
+# 🍂 September F1 Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A retro pixel-style September calendar with Formula 1 race weekends, falling leaves animation, and a theme toggle.  
+Built with **React + GitHub Copilot**.
 
-Currently, two official plugins are available:
+## ✨ Features
+- 📅 Pixel GUI calendar for September 2025  
+- 🏎️ F1 race days highlighted with glowing effect  
+- 🍂 Animated falling leaves across the screen  
+- 🌗 Dark/Light mode toggle  
+- 📌 Race details popup on click  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Demo
+- Live Demo: (Add your Vercel/Netlify link here once deployed)  
+- GitHub Repo: [september-f1-calendar](https://github.com/Raksha100/september-f1-calendar)
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
+- React
+- CSS animations
+- GitHub Copilot (for autocompletion & feature ideas)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🤝 How I Used Copilot
+- Helped autocomplete React component structure  
+- Suggested animations for falling leaves  
+- Assisted in building race day popup logic  
+
+## 📚 What I Learned
+- How to build a pixel GUI calendar in React  
+- Using CSS animations for natural effects  
+- How Copilot can speed up UI prototyping  
+
+## 🖼️ Screenshot
+(Add a screenshot of your app here)
+
